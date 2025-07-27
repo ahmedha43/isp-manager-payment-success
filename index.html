@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تم الدفع بنجاح - ISP Manager</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+        .success-icon {
+            font-size: 80px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .btn {
+            background: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #45a049;
+        }
+        .info {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+        .transaction-id {
+            font-family: monospace;
+            background: #e9ecef;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .token-display {
+            background: #f8f9fa;
+            border: 2px solid #4CAF50;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+            direction: ltr;
+        }
+        .token-text {
+            font-family: monospace;
+            font-size: 12px;
+            word-break: break-all;
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .copy-btn {
+            background: #007bff;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .copy-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">✅</div>
+        <h1>تم الدفع بنجاح!</h1>
+        <p>شكراً لك! تم إكمال عملية الدفع بنجاح عبر زين كاش.</p>
+        
+        <div id="token-section" class="token-display" style="display: none;">
+            <h3 style="color: #333; text-align: center; direction: rtl;">انسخ هذا الرمز وادخله في التطبيق:</h3>
+            <div class="token-text" id="token-display"></div>
+            <div style="text-align: center;">
+                <button class="copy-btn" onclick="copyToken()">نسخ الرمز</button>
+                <button class="copy-btn" onclick="openApp()">فتح التطبيق</button>
+            </div>
+        </div>
+        
+        <div class="info">
+            <h3>ماذا بعد؟</h3>
+            <p>• انسخ الرمز أعلاه<br>
+            • ارجع إلى تطبيق ISP Manager<br>
+            • اضغط "أدخل Token يدوياً"<br>
+            • ألصق الرمز واضغط "معالجة"</p>
+        </div>
+
+        <div id="transaction-info" style="display: none;">
+            <p>رقم المعاملة: <span class="transaction-id" id="transaction-id"></span></p>
+        </div>
+
+        <a href="#" class="btn" onclick="closeWindow()">العودة للتطبيق</a>
+        
+        <p style="margin-top: 30px; font-size: 14px; color: #999;">
+            إذا لم يتم تفعيل اشتراكك تلقائياً، يرجى التواصل مع الدعم الفني.
+        </p>
+    </div>
+
+    <script>
+        let currentToken = '';
+        
+        // استخراج معلومات المعاملة من URL
+        function getUrlParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get('token');
+            
+            if (token) {
+                currentToken = token;
+                document.getElementById('token-display').textContent = token;
+                document.getElementById('token-section').style.display = 'block';
+                
+                try {
+                    // فك تشفير JWT token (الجزء الثاني فقط - payload)
+                    const payload = JSON.parse(atob(token.split('.')[1]));
+                    
+                    if (payload.orderid || payload.orderId) {
+                        const orderId = payload.orderid || payload.orderId;
+                        document.getElementById('transaction-id').textContent = orderId;
+                        document.getElementById('transaction-info').style.display = 'block';
+                    }
+                    
+                    // إظهار حالة المعاملة
+                    if (payload.status === 'success') {
+                        document.querySelector('h1').textContent = 'تم الدفع بنجاح! ✅';
+                        document.querySelector('.success-icon').textContent = '✅';
+                    } else if (payload.status === 'failed') {
+                        document.querySelector('h1').textContent = 'فشل في الدفع ❌';
+                        document.querySelector('.success-icon').textContent = '❌';
+                        document.querySelector('.success-icon').style.color = '#f44336';
+                        document.querySelector('p').textContent = 'عذراً، لم تكتمل عملية الدفع. يرجى المحاولة مرة أخرى.';
+                    }
+                } catch (e) {
+                    console.log('Error parsing token:', e);
+                }
+            }
+        }
+
+        function copyToken() {
+            if (currentToken) {
+                navigator.clipboard.writeText(currentToken).then(() => {
+                    alert('تم نسخ الرمز! ارجع للتطبيق والصقه.');
+                }).catch(() => {
+                    // Fallback for older browsers
+                    const textArea = document.createElement('textarea');
+                    textArea.value = currentToken;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    alert('تم نسخ الرمز! ارجع للتطبيق والصقه.');
+                });
+            }
+        }
+
+        function openApp() {
+            // محاولة فتح التطبيق (يحتاج deep link)
+            window.location.href = 'ispmanager://payment-success?token=' + encodeURIComponent(currentToken);
+        }
+
+        function closeWindow() {
+            // محاولة إغلاق النافذة أو العودة
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.close();
+            }
+        }
+
+        // تشغيل عند تحميل الصفحة
+        window.onload = getUrlParams;
+    </script>
+</body>
+</html>
