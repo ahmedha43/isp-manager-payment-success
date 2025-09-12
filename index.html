@@ -28,7 +28,6 @@
             --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
             --gradient-5: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
             --gradient-6: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
-        }
 
         * {
             margin: 0;
@@ -765,11 +764,179 @@
             .price-tag {
                 font-size: 2.5rem;
             }
+                .section-title {
+                    font-size: 2rem !important;
+                }
+                .card-header, .card-body, .unlimited-features, .payment-method, .contact-card, .bg-white.p-8, .bg-white.p-10 {
+                    padding: 1.2rem !important;
+                }
+                .btn-primary, .btn-zain, .btn-binance, .btn-telegram {
+                    padding: 12px 18px !important;
+                    font-size: 1rem !important;
+                    min-width: 120px;
+                }
+                .copy-button {
+                    padding: 10px 16px !important;
+                    font-size: 0.95rem !important;
+                }
+                .contact-icon {
+                    width: 56px;
+                    height: 56px;
+                    font-size: 22px;
+                }
+                .account-number {
+                    font-size: 1.1rem !important;
+                    padding: 8px 16px !important;
+                }
+                #whatsappForm input {
+                    font-size: 1rem !important;
+                    padding: 10px !important;
+                }
+                #whatsappForm button {
+                    font-size: 1rem !important;
+                    padding: 12px !important;
+                }
+                .faq-section, .privacy-section {
+                    padding: 1.2rem !important;
+                }
+                .container {
+                    padding-left: 0.5rem !important;
+                    padding-right: 0.5rem !important;
+                }
+                .rounded-3xl, .rounded-2xl {
+                    border-radius: 1rem !important;
+                }
+                .mb-16 {
+                    margin-bottom: 2rem !important;
+                }
+                .mb-8 {
+                    margin-bottom: 1.2rem !important;
+                }
+                .py-24 {
+                    padding-top: 2.5rem !important;
+                    padding-bottom: 2.5rem !important;
+                }
+                .gap-10 {
+                    gap: 1.2rem !important;
+                }
+                .max-w-3xl, .max-w-4xl, .max-w-5xl, .max-w-6xl, .max-w-2xl {
+                    max-width: 100% !important;
+                }
+                .flex {
+                    flex-direction: column !important;
+                    gap: 0.8rem !important;
+                }
+                .grid-cols-2 {
+                    grid-template-columns: 1fr !important;
+                }
+                .space-x-6, .space-x-reverse {
+                    gap: 0.8rem !important;
+                }
+                .sticky {
+                    position: static !important;
+                }
+                .z-50 {
+                    z-index: 10 !important;
+                }
+                .ml-2, .ml-3, .ml-1 {
+                    margin-left: 0.3rem !important;
+                }
+                .mb-6 {
+                    margin-bottom: 1rem !important;
+                }
+                .mb-4 {
+                    margin-bottom: 0.8rem !important;
+                }
+                .mb-10 {
+                    margin-bottom: 1.2rem !important;
+                }
+                .mb-12 {
+                    margin-bottom: 1.2rem !important;
+                }
+                .mt-12, .mt-16 {
+                    margin-top: 1.2rem !important;
+                }
+                .gap-8 {
+                    gap: 1rem !important;
+                }
+                .w-24 {
+                    width: 56px !important;
+                    height: 56px !important;
+                }
+                .text-2xl {
+                    font-size: 1.3rem !important;
+                }
+                .text-4xl {
+                    font-size: 1.7rem !important;
+                }
+                .text-5xl, .md\:text-6xl {
+                    font-size: 2.2rem !important;
+                }
+                .text-xl, .md\:text-2xl {
+                    font-size: 1.1rem !important;
+                }
+                .text-lg, .md\:text-xl {
+                    font-size: 1rem !important;
+                }
+                .rounded-full {
+                    border-radius: 1.5rem !important;
+                }
+                .shadow-xl, .shadow-lg {
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+                }
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Privacy Policy & Terms Section -->
+    <section id="privacy" class="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-4xl font-bold mb-16 text-center" data-aos="fade-up">سياسة الخصوصية والشروط والأحكام</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-3xl p-10 shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">سياسة الخصوصية</h3>
+                    <p class="text-gray-700 mb-8">نحن ملتزمون بحماية خصوصية مستخدمينا. جميع البيانات الشخصية التي يتم جمعها عبر التطبيق تُستخدم فقط لتحسين الخدمة ولا يتم مشاركتها مع أي طرف ثالث.</p>
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">الشروط والأحكام</h3>
+                    <ul class="list-disc pr-6 text-gray-700 space-y-4">
+                        <li>استخدام التطبيق متاح فقط للأغراض القانونية والمسموح بها.</li>
+                        <li>يجب على المستخدمين الحفاظ على سرية بيانات الدخول وعدم مشاركتها مع الآخرين.</li>
+                        <li>يحق لإدارة التطبيق تحديث أو تعديل الشروط والأحكام في أي وقت.</li>
+                        <li>أي إساءة استخدام للتطبيق تعرض المستخدم للحظر أو إيقاف الخدمة.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Navigation -->
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-4xl font-bold mb-16 text-center" data-aos="fade-up">الأسئلة الشائعة</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-10 shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 text-blue-800">كيف يمكنني الاشتراك في التطبيق؟</h4>
+                            <p class="text-gray-700">يمكنك الاشتراك عبر اختيار الباقة المناسبة من قسم الباقات ثم اتباع خطوات الدفع الإلكتروني.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 text-blue-800">هل يوجد دعم فني متواصل؟</h4>
+                            <p class="text-gray-700">نعم، يوفر التطبيق دعم فني على مدار الساعة عبر وسائل التواصل المتاحة.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 text-blue-800">هل يمكنني تغيير الباقة لاحقاً؟</h4>
+                            <p class="text-gray-700">بإمكانك تغيير الباقة في أي وقت من خلال إعدادات التطبيق واختيار الباقة الجديدة.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 text-blue-800">هل بياناتي آمنة؟</h4>
+                            <p class="text-gray-700">نعم، جميع بيانات المستخدمين محمية وفق أحدث معايير الأمان والخصوصية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <nav class="gradient-bg text-white py-4 sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center">
@@ -782,6 +949,10 @@
                 <a href="#payment" class="hover:text-blue-200 transition-all duration-300">طرق الدفع</a>
                 <a href="#contact" class="hover:text-blue-200 transition-all duration-300">تواصل</a>
             </div>
+                <div class="flex items-center gap-2">
+                    <button id="lang-ar" class="bg-white text-blue-900 font-bold px-4 py-2 rounded-full border border-blue-300 hover:bg-blue-100 focus:outline-none min-w-[80px] text-sm">العربية</button>
+                    <button id="lang-en" class="bg-white text-blue-900 font-bold px-4 py-2 rounded-full border border-blue-300 hover:bg-blue-100 focus:outline-none min-w-[80px] text-sm">English</button>
+                </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-white focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
@@ -1110,7 +1281,6 @@
                     <h3 class="text-2xl font-bold mb-4">تواصل معنا</h3>
                     <p class="text-gray-600">للاستفسارات والدعم الفني، يمكنك التواصل معنا عبر:</p>
                 </div>
-                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                     <div class="contact-card bg-gradient-to-br from-blue-50 to-indigo-50 p-8" data-aos="fade-right" data-aos-delay="200">
                         <div class="contact-icon">
@@ -1127,7 +1297,17 @@
                         <p class="text-center">009647834794879</p>
                     </div>
                 </div>
-                
+                <div class="text-center mb-12">
+                    <form id="whatsappForm" class="max-w-md mx-auto">
+                        <h4 class="text-xl font-bold mb-6 text-green-700 flex items-center justify-center">
+                            <i class="fab fa-whatsapp ml-2"></i> أرسل رسالة واتساب
+                        </h4>
+                        <input type="text" id="waMessage" name="waMessage" class="w-full p-3 mb-4 border rounded-lg text-right" placeholder="اكتب رسالتك هنا..." required>
+                        <button type="submit" class="btn-primary w-full">
+                            <i class="fab fa-whatsapp ml-2"></i> إرسال واتساب
+                        </button>
+                    </form>
+                </div>
                 <div class="text-center" data-aos="fade-up" data-aos-delay="400">
                     <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-blue-100 to-indigo-100 mb-6">
                         <i class="fab fa-telegram-plane text-5xl text-blue-500"></i>
@@ -1140,6 +1320,16 @@
                 </div>
             </div>
         </div>
+        <script>
+            document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                var msg = document.getElementById('waMessage').value.trim();
+                if (msg) {
+                    var waUrl = 'https://wa.me/qr/U22CICF7BZKDN1?text=' + encodeURIComponent(msg);
+                    window.open(waUrl, '_blank');
+                }
+            });
+        </script>
     </section>
 
     <!-- Footer -->
@@ -1200,6 +1390,69 @@
             once: true,
             mirror: false
         });
+
+            // Language Switcher
+            const translations = {
+                ar: {
+                    about: "عن التطبيق",
+                    packages: "الباقات والأسعار",
+                    payment: "طرق الدفع",
+                    contact: "معلومات الاتصال",
+                    faq: "الأسئلة الشائعة",
+                    privacy: "سياسة الخصوصية والشروط والأحكام",
+                    heroTitle: "ISP MANAGER",
+                    heroDesc: "تطبيق احترافي لإدارة مشتركين الانترنت وتسهيل عمليات الاشتراك والدفع",
+                    subscribe: "اشترك الآن",
+                    sendWhatsapp: "إرسال واتساب",
+                    sendWhatsappTitle: "أرسل رسالة واتساب",
+                    joinTelegram: "انضم إلى القناة",
+                    joinTelegramTitle: "انضم إلى قناتنا على تيليجرام",
+                    telegramDesc: "انضم إلى قناتنا على تيليجرام للحصول على أحدث تحديثات التطبيق والمساعدة الفنية والمزيد من الميزات الحصرية.",
+                },
+                en: {
+                    about: "About App",
+                    packages: "Packages & Pricing",
+                    payment: "Payment Methods",
+                    contact: "Contact Info",
+                    faq: "FAQ",
+                    privacy: "Privacy Policy & Terms",
+                    heroTitle: "ISP MANAGER",
+                    heroDesc: "A professional app for managing internet subscribers and facilitating subscription and payment.",
+                    subscribe: "Subscribe Now",
+                    sendWhatsapp: "Send WhatsApp",
+                    sendWhatsappTitle: "Send WhatsApp Message",
+                    joinTelegram: "Join Channel",
+                    joinTelegramTitle: "Join our Telegram Channel",
+                    telegramDesc: "Join our Telegram channel for the latest app updates, technical support, and exclusive features.",
+                }
+            };
+
+            function setLanguage(lang) {
+                document.querySelector('h2.section-title[data-aos][text-center]').textContent = translations[lang].privacy;
+                document.querySelector('section#faq h2.section-title').textContent = translations[lang].faq;
+                document.querySelector('section#about h2.section-title').textContent = translations[lang].about;
+                document.querySelector('section#packages h2.section-title').textContent = translations[lang].packages;
+                document.querySelector('section#payment h2.section-title').textContent = translations[lang].payment;
+                document.querySelector('section#contact h2.section-title').textContent = translations[lang].contact;
+                document.querySelector('header .hero-title').textContent = translations[lang].heroTitle;
+                document.querySelector('header p').textContent = translations[lang].heroDesc;
+                document.querySelectorAll('.btn-primary').forEach(btn => btn.textContent = translations[lang].subscribe);
+                document.querySelector('#whatsappForm h4').textContent = translations[lang].sendWhatsappTitle;
+                document.querySelector('#whatsappForm button').textContent = translations[lang].sendWhatsapp;
+                document.querySelector('section#contact .fab.fa-telegram-plane + h3').textContent = translations[lang].joinTelegramTitle;
+                document.querySelector('section#contact .fab.fa-telegram-plane + h3 + p').textContent = translations[lang].telegramDesc;
+                document.getElementById('lang-ar').classList.toggle('bg-blue-200', lang === 'ar');
+                document.getElementById('lang-en').classList.toggle('bg-blue-200', lang === 'en');
+            }
+
+            document.getElementById('lang-ar').addEventListener('click', function() {
+                setLanguage('ar');
+            });
+            document.getElementById('lang-en').addEventListener('click', function() {
+                setLanguage('en');
+            });
+            // Default language
+            setLanguage('ar');
 
         // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
