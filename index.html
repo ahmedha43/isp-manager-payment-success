@@ -1684,17 +1684,49 @@
         });
 
         // QR Modal functionality
-        document.getElementById('zain-cash-btn').addEventListener('click', function() {
-            document.getElementById('zain-cash-modal').classList.add('active');
-        });
+        document.addEventListener('DOMContentLoaded', function() {
+            // Zain Cash button
+            const zainCashBtn = document.getElementById('zain-cash-btn');
+            if (zainCashBtn) {
+                zainCashBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('zain-cash-modal').classList.add('active');
+                });
+            }
 
-        document.getElementById('binance-btn').addEventListener('click', function() {
-            document.getElementById('binance-modal').classList.add('active');
-        });
+            // Binance button
+            const binanceBtn = document.getElementById('binance-btn');
+            if (binanceBtn) {
+                binanceBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('binance-modal').classList.add('active');
+                });
+            }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
-        }
+            // Close modal functions
+            window.closeModal = function(modalId) {
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.remove('active');
+                }
+            };
+
+            // Close modals when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target.classList.contains('qr-modal')) {
+                    event.target.classList.remove('active');
+                }
+            });
+
+            // Close modals with Escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    document.querySelectorAll('.qr-modal.active').forEach(modal => {
+                        modal.classList.remove('active');
+                    });
+                }
+            });
+        });
 
         // Copy to clipboard functionality
         function copyToClipboard(text) {
